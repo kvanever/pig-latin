@@ -1,6 +1,10 @@
 // backend logic
 var pigLatin = function(string) {
   debugger;
+  if (checkCase(string.charAt(0))) {
+    var upperCase = true;
+    string = firstToLowerCase(string);
+  }
   if (vowel(string.charAt(0))) {
     string += "ay";
   }
@@ -14,12 +18,32 @@ var pigLatin = function(string) {
     else {
       string = string.substr(firstVowelIndex) + string.substr(0, firstVowelIndex) + "ay";
     }
+
+    if (upperCase === true) {
+      string = firstToUpperCase(string);
+    }
   return string;
   }
 }
 
 var vowel = function(letter) {
   return (/^[aeiou]$/i).test(letter);
+}
+
+var checkCase = function(letter) {
+  if (letter == letter.toUpperCase()) {
+  return true;
+  }
+}
+
+function firstToUpperCase(string) {
+    string = string.substr(0, 1).toUpperCase() + string.substr(1);
+    return string;
+}
+
+function firstToLowerCase(string) {
+  string = string.charAt(0).toLowerCase() + string.slice(1);
+  return string;
 }
 
 // frontend logic
