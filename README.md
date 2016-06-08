@@ -1,8 +1,8 @@
-# Web Development Template
+# Pig Latin Translator
 
-#### This is a lightweight repository to deploy a basic project at the beginning of each Epicodus pair and solo project. It is meant to save time and support clean builds. Current as of June 1, 2016
+#### This app accepts a string and returns it in pig latin. Current as of June 8, 2016
 
-#### By Kevin VanEvery, Cory Olson, and Patrick Lipscomb
+#### By Kevin VanEvery and Matthew Giem
 
 ## Description
 
