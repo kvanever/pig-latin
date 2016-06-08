@@ -1,6 +1,4 @@
 // backend logic
-
-
 var pigLatin = function(string) {
   if (checkCase(string.charAt(0))) {
     var upperCase = true;
@@ -22,9 +20,11 @@ var pigLatin = function(string) {
       string = string.substr(firstVowelIndex) + string.substr(0, firstVowelIndex) + "ay";
     }
   }
+
   if (upperCase === true) {
     string = firstToUpperCase(string);
   }
+
   return string;
 }
 
@@ -51,12 +51,29 @@ function firstToLowerCase(string) {
 var pigLatinSentence = function(string) {
   var array = string.split(' ');
   for(i=0; i<array.length; i++)  {
-    array[i]=pigLatin(array[i]);
+    if (checkNumber(array[i].charAt(0))===false)  {
+      if (checkPunctuation(array[i].charAt(array[i].length-1))) {
+        var punctuation = array[i].charAt(array[i].length-1);
+        array[i] = array[i].slice(0, array[i].length -1);
+        array[i] = pigLatin(array[i]);
+        array[i] += punctuation;
+      }
+      else {
+      array[i]=pigLatin(array[i]);
+      }
+    }
   }
   var output = array.join(" ");
   return output;
 }
 
+var checkPunctuation = function(symbol){
+  return (/^[!@#$%^&*(),.?':;]$/i).test(symbol)
+}
+
+var checkNumber = function(symbol){
+  return (/^[1234567890]$/i).test(symbol)
+}
 
 // frontend logic
 $(document).ready(function(){
