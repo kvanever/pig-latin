@@ -1,17 +1,25 @@
 // backend logic
+var pigLatinSentence = function(string) {
+  var array = string.split(' ');
+  array.forEach(function(string) {
+    pigLatin(string);
+  })
+}
+
 var pigLatin = function(string) {
-  debugger;
   if (checkCase(string.charAt(0))) {
     var upperCase = true;
     string = firstToLowerCase(string);
   }
+
   if (vowel(string.charAt(0))) {
     string += "ay";
   }
   else {
-    for (var firstVowelIndex = 0; vowel(string.charAt(firstVowelIndex)) === false; firstVowelIndex++) {
 
+    for (var firstVowelIndex = 0; vowel(string.charAt(firstVowelIndex)) === false; firstVowelIndex++) {
     }
+
     if (string.charAt(firstVowelIndex-1) === "q" && string.charAt(firstVowelIndex) === "u") {
       string = string.substr(firstVowelIndex + 1) + string.substr(0, firstVowelIndex + 1) + "ay";
     }
@@ -46,12 +54,15 @@ function firstToLowerCase(string) {
   return string;
 }
 
+
+
+
 // frontend logic
 $(document).ready(function(){
   $("form").submit(function(event) {
-    var string = $("input").val();
-    string = pigLatin(string);
-    alert(string);
+    var input = $("input").val();
+    var output = pigLatin(input);
+    alert(output);
     event.preventDefault();
   })
 })
