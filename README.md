@@ -16,7 +16,7 @@ pig latin translator
 |For words that begin with a single consonant, the program should move the first consonant to the end of the word, then add "ay" |cat  |atcay   |
 |for words that begin with more than one consonant, the program should move those consonants to the end of the word, then add "ay" |czar  |arczay  |
 |the u postceeding a q must always be attached  |squeal   |ealsquay   |
-|if the first letter is capitilized then make it lowercase and capitalize the new first letter of the word  | Translator   |AnslatorTay   |
+|if the first letter is capitilized then make it lowercase and capitalize the new first letter of the word  | Translator   |Anslatortay   |
 |keep proper puntuation   |bicycle,   |icyclebay,   |
 |ignore numbers and strings beginning with numbers  |19k  |19k   |
 |if the string contains more that one word split the string and apply the function to the subseuqnet stings    | computer programming   |omputercay ogrammingpray   |
