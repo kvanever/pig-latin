@@ -1,10 +1,13 @@
 // backend logic
 var pigLatin = function(string) {
+  debugger;
   if (vowel(string.charAt(0))) {
     string += "ay";
   } else {
-    var num = 1;
-    string = string.substr(num) + string.substr(0, num) + ("ay");
+    for (var firstVowelIndex = 0; vowel(string.charAt(firstVowelIndex)) === false; firstVowelIndex++) {
+      // return firstVowelIndex;
+    }
+    string = string.substr(firstVowelIndex) + string.substr(0, firstVowelIndex) + "ay";
   }
   return string;
 }
