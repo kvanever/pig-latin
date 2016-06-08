@@ -1,10 +1,5 @@
 // backend logic
-var pigLatinSentence = function(string) {
-  var array = string.split(' ');
-  array.forEach(function(string) {
-    pigLatin(string);
-  })
-}
+
 
 var pigLatin = function(string) {
   if (checkCase(string.charAt(0))) {
@@ -26,12 +21,11 @@ var pigLatin = function(string) {
     else {
       string = string.substr(firstVowelIndex) + string.substr(0, firstVowelIndex) + "ay";
     }
-
-    if (upperCase === true) {
-      string = firstToUpperCase(string);
-    }
-  return string;
   }
+  if (upperCase === true) {
+    string = firstToUpperCase(string);
+  }
+  return string;
 }
 
 var vowel = function(letter) {
@@ -54,14 +48,21 @@ function firstToLowerCase(string) {
   return string;
 }
 
-
+var pigLatinSentence = function(string) {
+  var array = string.split(' ');
+  for(i=0; i<array.length; i++)  {
+    array[i]=pigLatin(array[i]);
+  }
+  var output = array.join(" ");
+  return output;
+}
 
 
 // frontend logic
 $(document).ready(function(){
   $("form").submit(function(event) {
     var input = $("input").val();
-    var output = pigLatin(input);
+    var output = pigLatinSentence(input);
     alert(output);
     event.preventDefault();
   })
